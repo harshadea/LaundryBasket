@@ -64,7 +64,7 @@ class _OnbondingState extends State<Onbonding> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   Container(
-                    color: Colors.green.shade50,
+                    color: Colors.white.withOpacity(0.09),
                     height: height,
                     child: PageView(
                       physics: const ClampingScrollPhysics(),
@@ -248,7 +248,7 @@ class _OnbondingState extends State<Onbonding> {
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    color: Colors.green.shade300,
+                                    color: Colors.green.shade500,
                                     borderRadius: const BorderRadius.all(
                                       Radius.circular(15),
                                     ),
@@ -300,7 +300,7 @@ class _OnbondingState extends State<Onbonding> {
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    color: Colors.green.shade300,
+                                    color: Colors.green.shade500,
                                     borderRadius: const BorderRadius.all(
                                       Radius.circular(15),
                                     ),

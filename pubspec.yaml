@@ -43,6 +43,7 @@ dependencies:
   http: ^0.13.5
   dotted_line: ^3.1.0
   salomon_bottom_bar: ^3.3.1
+  flutter_svg: ^1.1.6
 
 dev_dependencies:
   flutter_test:
