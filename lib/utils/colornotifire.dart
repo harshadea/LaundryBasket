@@ -29,7 +29,4 @@ class ColorNotifire with ChangeNotifier {
   get getblackcolor => isDark ? darkwhiteColor : whiteColor;
 
 
-
-
-
 }

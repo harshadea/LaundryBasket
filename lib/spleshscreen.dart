@@ -9,14 +9,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'onbonding.dart';
 import 'utils/colornotifire.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+class Spleshscreen extends StatefulWidget {
+  const Spleshscreen({Key? key}) : super(key: key);
 
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  _SpleshscreenState createState() => _SpleshscreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SpleshscreenState extends State<Spleshscreen> {
   @override
   void initState() {
     super.initState();

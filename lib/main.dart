@@ -11,7 +11,7 @@ void main() {
         ChangeNotifierProvider(create: (_) => ColorNotifire()),
       ],
       child: const GetMaterialApp(
-        home: SplashScreen(),
+        home: Spleshscreen(),
         debugShowCheckedModeBanner: false,
       ),
     ),

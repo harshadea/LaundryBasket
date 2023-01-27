@@ -1,6 +1,5 @@
-import 'package:anywash/home/bottom.dart';
 import 'package:anywash/login_password/login.dart';
-import 'package:anywash/utils/reusableTextField.dart';
+import 'package:anywash/utils/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
@@ -39,183 +38,178 @@ class _RegisterState extends State<Register> {
 
   @override
   Widget build(BuildContext context) {
-
-    TextEditingController emailTextController = TextEditingController();
-    TextEditingController nameTextController = TextEditingController();
-    TextEditingController phoneTextController = TextEditingController();
     notifire = Provider.of<ColorNotifire>(context, listen: true);
     return Scaffold(
       backgroundColor: notifire.getprimerycolor,
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
-              height: height / 20,
-            ),
+            SizedBox(height: height / 20),
             Row(
               children: [
-                SizedBox(
-                  height: height / 20,
-                ),
-                Row(
-                  children: [
-                    SizedBox(
-                      width: width / 20,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: const BorderRadius.all(
-                            Radius.circular(10),
-                          ),
-                          border: Border.all(
-                              color: const Color(0xfff1f5f6), width: 2),
-                          color: Colors.transparent,
-                        ),
-                        height: height / 19,
-                        width: width / 8,
-                        child: Center(
-                          child: Icon(
-                            Icons.arrow_back_ios_outlined,
-                            color: notifire.getdarkscolor,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                SizedBox(height: height / 20),
+                SizedBox(width: width / 20),
+                GestureDetector(
+                    onTap: () {
+                      Get.back();
+                    },
+                    child: const Card(
+                      elevation: 5,
+                        child: SizedBox(
+                          height: 33,
+                            width: 33,
+                            child: Icon(Icons.arrow_back_ios_outlined)))),
               ],
             ),
-            Image.asset(
-              "image/login.png",
-              height: height / 4,
+            Center(
+              child: Image.asset("image/login.png", height: height / 4),
             ),
+            const SizedBox(height: 22),
+            Center(
+              child: Text(CustomStrings.signup,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: height / 25)),
+            ),
+            SizedBox(height: height / 30),
+            const Padding(
+                padding: EdgeInsets.only(left: 18.0),
+                child: Text('Your Name',
+                    style: TextStyle(fontWeight: FontWeight.bold))),
+            const SizedBox(height: 5),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: width / 15),
-              child: Row(
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        CustomStrings.signup,
-                        style: TextStyle(
-                            fontFamily: 'Gilroy Bold',
-                            color: notifire.getdarkscolor,
-                            fontSize: height / 25),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+              padding: const EdgeInsets.only(left: 8.0, right: 8),
+              child: Card(
+                  elevation: 5,
+                  color: colors.white,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+                    child: TextFormField(
+                        keyboardType: TextInputType.text,
+                        decoration: const InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Your Name',
+                            prefixIcon: Icon(Icons.person, color: colors.green),
+                            fillColor: colors.grey)),
+                  )),
             ),
-           Padding(
-             padding: const EdgeInsets.all(16.0),
-             child: Column(
-               crossAxisAlignment: CrossAxisAlignment.start,
-               children: [
-                 const Text(
-                   'Email Address',
-                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                 ),
-                const SizedBox(height: 10),
-                 reusableTextField("Enter Your Email Address",
-                     Icons.email_outlined, false, emailTextController),
-                 const SizedBox(height: 15),
-                 const Text(
-                   'Full Name',
-                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                 ),
-                 const SizedBox(height: 15),
-                 reusableTextField("Enter Your Full Name",
-                     Icons.person, false, nameTextController),
-                 const SizedBox(height: 15),
-                 const Text(
-                   'Mobile',
-                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                 ),
-                 const SizedBox(height: 15),
-                 reusableTextField("Enter Your Email Address",
-                     Icons.phone, false, phoneTextController),
-                 const SizedBox(height: 15),
-               ],
-             ),
-           ),
+            SizedBox(height: height / 44),
+            const Padding(
+                padding: EdgeInsets.only(left: 18.0),
+                child: Text('Email Address',
+                    style: TextStyle(fontWeight: FontWeight.bold))),
+            const SizedBox(height: 5),
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0, right: 8),
+              child: Card(
+                  elevation: 5,
+                  color: colors.white,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+                    child: TextFormField(
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: const InputDecoration(
+                            border: InputBorder.none,
+                            prefixIcon:
+                                Icon(Icons.email_outlined, color: colors.green),
+                            hintText: 'Email',
+                            fillColor: colors.grey)),
+                  )),
+            ),
+            SizedBox(height: height / 44),
+            const Padding(
+                padding: EdgeInsets.only(left: 18.0),
+                child: Text('Mobile',
+                    style: TextStyle(fontWeight: FontWeight.bold))),
+            const SizedBox(height: 5),
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0, right: 8),
+              child: Card(
+                  elevation: 5,
+                  color: colors.white,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+                    child: TextFormField(
+                        keyboardType: TextInputType.phone,
+                        decoration: const InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Mobile',
+                            prefixText: '+91',
+                            prefixIcon: Icon(
+                              Icons.phone_android,
+                              color: colors.green,
+                            ),
+                            fillColor: colors.grey)),
+                  )),
+            ),
+            const SizedBox(height: 5),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: width / 20),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     CustomStrings.by,
-                    style: TextStyle(
-                        fontFamily: 'Gilroy Medium',
-                        color: Colors.grey,
-                        fontSize: height / 60),
-                  ),
-                  Text(
-                    CustomStrings.tc,
-                    style: TextStyle(
-                        fontFamily: 'Gilroy Medium',
-                        color: notifire.getprocolor,
-                        fontSize: height / 60),
+                    style: TextStyle(fontSize: height / 60),
                   ),
                 ],
               ),
             ),
-            SizedBox(
-              height: height / 100,
-            ),
+            const SizedBox(height: 5),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: width / 20),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Text(
+                    CustomStrings.tc,
+                    style:
+                        TextStyle(color: colors.green, fontSize: height / 60),
+                  ),
+                  const SizedBox(width: 5),
                   Text(
                     CustomStrings.and,
                     style: TextStyle(
-                        fontFamily: 'Gilroy Medium',
-                        color: Colors.grey,
                         fontSize: height / 60),
                   ),
+                  const SizedBox(width: 5),
                   Text(
                     CustomStrings.pri,
-                    style: TextStyle(
-                        fontFamily: 'Gilroy Medium',
-                        color: notifire.getprocolor,
-                        fontSize: height / 60),
+                    style:
+                        TextStyle(color: colors.green, fontSize: height / 60),
                   ),
                 ],
               ),
             ),
-            SizedBox(
-              height: height / 15,
-            ),
+            const SizedBox(height: 8),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: width / 15),
               child: GestureDetector(
                   onTap: () {
                     Get.to(
-                      const Bottom(),
+                      const Login(),
                     );
                   },
                   child: Custombutton.button(
-                      notifire.getprocolor, CustomStrings.continues, width)),
+                      Colors.green.shade500, CustomStrings.register, width)),
             ),
             SizedBox(
-              height: height / 30,
+              height: height / 66,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   CustomStrings.use,
-                  style: TextStyle(
-                      fontFamily: 'Gilroy Medium',
-                      color: Colors.grey,
-                      fontSize: height / 50),
+                  style: TextStyle(fontSize: height / 50),
                 ),
+                const SizedBox(width: 5),
                 GestureDetector(
                   onTap: () {
                     Get.to(
@@ -226,15 +220,14 @@ class _RegisterState extends State<Register> {
                     color: Colors.transparent,
                     child: Text(
                       CustomStrings.login,
-                      style: TextStyle(
-                          fontFamily: 'Gilroy Medium',
-                          color: notifire.getprocolor,
-                          fontSize: height / 50),
+                      style:
+                          TextStyle(color: colors.green, fontSize: height / 50),
                     ),
                   ),
                 ),
               ],
             ),
+            const SizedBox(height: 33)
           ],
         ),
       ),

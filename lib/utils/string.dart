@@ -44,7 +44,7 @@ class CustomStrings {
   static const String newto = 'New to Logistics? ';
   static const String googles = 'Login with Google';
   static const String start = 'Start';
-  static const String signup = 'Sign up';
+  static const String signup = 'Sign Up';
   static const String register = 'Register';
   static const String login = 'Login';
   static const String need = 'What do you need today?';

@@ -230,6 +230,3 @@ extension colors on ColorScheme {
       ? const Color(0xff0F1412)
       : const Color(0xffC6F8E5);
 }
-
-
-

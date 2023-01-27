@@ -336,7 +336,7 @@ class _DetailsState extends State<Details> {
                             child: Center(
                               child: GestureDetector(
                                 onTap: (){
-                                  Get.to(const AddItem(),);
+                                  Get.to(const Additem(),);
                                 },
                                 child:   Padding(
                                   padding: EdgeInsets.symmetric(horizontal: width / 15),

@@ -5,14 +5,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../utils/colornotifire.dart';
 
-class AddItem extends StatefulWidget {
-  const AddItem({Key? key}) : super(key: key);
+class Additem extends StatefulWidget {
+  const Additem({Key? key}) : super(key: key);
 
   @override
-  _AddItemState createState() => _AddItemState();
+  _AdditemState createState() => _AdditemState();
 }
 
-class _AddItemState extends State<AddItem> {
+class _AdditemState extends State<Additem> {
   late ColorNotifire notifire;
 
   getdarkmodepreviousstate() async {

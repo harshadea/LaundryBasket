@@ -1,13 +1,14 @@
 import 'package:anywash/home/home.dart';
 import 'package:anywash/order/order.dart';
+import 'package:anywash/utils/color.dart';
 import 'package:anywash/utils/media.dart';
+import 'package:anywash/view/recommended.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../message/message.dart';
-import '../profile/profile.dart';
 import '../utils/colornotifire.dart';
 
 class Bottom extends StatefulWidget {
@@ -41,9 +42,10 @@ class _BottomState extends State<Bottom> {
 
   final widgetOptions = [
     const Home(),
+    // const CartScreen(),
     const Order(),
     const Message(),
-    const Profile(),
+    const Recommended(),
   ];
 
   @override
@@ -51,7 +53,7 @@ class _BottomState extends State<Bottom> {
     notifire = Provider.of<ColorNotifire>(context, listen: true);
     return WillPopScope(
       onWillPop: () async {
-        if(_selectedIndex == 0){
+        if (_selectedIndex == 0) {
           return true;
         }
         setState(() {
@@ -60,80 +62,113 @@ class _BottomState extends State<Bottom> {
         return false;
       },
       child: Scaffold(
-        backgroundColor: notifire.getprimerycolor,
+          backgroundColor: notifire.getprimerycolor,
           bottomNavigationBar: Container(
             height: height / 12,
             margin: EdgeInsets.only(
                 left: width / 20, right: width / 20, bottom: width / 20),
-            decoration:  BoxDecoration(
+            decoration: BoxDecoration(
               color: notifire.getbcolor,
               borderRadius: const BorderRadius.all(
                 Radius.circular(30),
               ),
             ),
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: width / 40),
-              child: SalomonBottomBar(
-                curve: Curves.easeInOut,
-                itemPadding: EdgeInsets.all(height / 100),
-                itemShape: const StadiumBorder(side: BorderSide.none),
-                selectedItemColor: notifire.getbcolor,
-                currentIndex: _selectedIndex,
-                items: [
-                  SalomonBottomBarItem(
-                    icon: Padding(
-                      padding: EdgeInsets.only(left: width / 100,top: width / 100,bottom: width / 100),
-                      child: Image.asset("image/ihome.png",
-                          color: _selectedIndex == 0
-                              ? notifire.getprocolor
-                              : Colors.black,
-                          height: height / 30),
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: width / 40),
+                child: SalomonBottomBar(
+                  curve: Curves.easeInOut,
+                  itemPadding: EdgeInsets.all(height / 100),
+                  itemShape: const StadiumBorder(side: BorderSide.none),
+                  selectedItemColor: colors.green,
+                  currentIndex: _selectedIndex,
+                  items: [
+                    SalomonBottomBarItem(
+                      icon: Padding(
+                        padding: EdgeInsets.only(
+                            left: width / 100,
+                            top: width / 100,
+                            bottom: width / 100),
+                        child: Image.asset("image/ihome.png",
+                            color: _selectedIndex == 0
+                                ? colors.green
+                                : Colors.black,
+                            height: height / 30),
+                      ),
+                      selectedColor: colors.green,
+                      title: const Text(""),
                     ),
-                    selectedColor: notifire.getprocolor,
-                    title: const Text(""),
-                  ),
-                  SalomonBottomBarItem(
-                    icon: Padding(
-                      padding: EdgeInsets.only(left: width / 100,top: width / 100,bottom: width / 100),
-                      child: Image.asset("image/document.png",
-                          color: _selectedIndex == 1
-                              ? notifire.getprocolor
-                              : Colors.black,
-                          height: height / 30),
+                    // SalomonBottomBarItem(
+                    //   icon: Padding(
+                    //     padding: EdgeInsets.only(
+                    //         left: width / 100,
+                    //         top: width / 100,
+                    //         bottom: width / 100),
+                    //     child: Icon(Icons.shopping_cart_outlined,
+                    //         size: 22,
+                    //         color: _selectedIndex == 1
+                    //             ? colors.green
+                    //             : Colors.black,
+                    //     ),
+                    //   ),
+                    //   selectedColor: colors.green,
+                    //   title: const Text(""),
+                    // ),
+                    SalomonBottomBarItem(
+                      icon: Padding(
+                        padding: EdgeInsets.only(
+                            left: width / 100,
+                            top: width / 100,
+                            bottom: width / 100),
+                        child: Image.asset("image/document.png",
+                            color: _selectedIndex == 1
+                                ? colors.green
+                                : Colors.black,
+                            height: height / 30),
+                      ),
+                      title: const Text(""),
+                      selectedColor: colors.green,
                     ),
-                    title: const Text(""),
-                    selectedColor: notifire.getprocolor,
-                  ),
-                  SalomonBottomBarItem(
-                    icon: Padding(
-                      padding: EdgeInsets.only(left: width / 100,top: width / 100,bottom: width / 100),
-                      child: Image.asset("image/chat.png",
-                          color: _selectedIndex == 2
-                              ? notifire.getprocolor
-                              : Colors.black,
-                          height: height / 30),
+                    SalomonBottomBarItem(
+                      icon: Padding(
+                        padding: EdgeInsets.only(
+                            left: width / 100,
+                            top: width / 100,
+                            bottom: width / 100),
+                        child: Image.asset("image/chat.png",
+                            color: _selectedIndex == 2
+                                ? colors.green
+                                : Colors.black,
+                            height: height / 30),
+                      ),
+                      title: const Text(""),
+                      selectedColor: colors.green,
                     ),
-                    title: const Text(""),
-                    selectedColor: notifire.getprocolor,
-                  ),
-                  SalomonBottomBarItem(
-                    icon: Padding(
-                      padding: EdgeInsets.only(left: width / 100,top: width / 100,bottom: width / 100),
-                      child: Image.asset("image/setting.png",
-                          color: _selectedIndex == 3
-                              ? notifire.getprocolor
-                              : Colors.black,
-                          height: height / 30),
+                    SalomonBottomBarItem(
+                      icon: Padding(
+                        padding: EdgeInsets.only(
+                            left: width / 100,
+                            top: width / 100,
+                            bottom: width / 100),
+                        child: Image.asset("image/setting.png",
+                            color: _selectedIndex == 3
+                                ? colors.green
+                                : Colors.black,
+                            height: height / 30),
+                      ),
+                      title: const Text(""),
+                      selectedColor: colors.green,
                     ),
-                    title: const Text(""),
-                    selectedColor: notifire.getprocolor,
-                  ),
-                ],
-                onTap: (index) {
-                  setState(() {
-                    _selectedIndex = index;
-                  });
-                },
+                  ],
+                  onTap: (index) {
+                    setState(() {
+                      _selectedIndex = index;
+                    });
+                  },
+                ),
               ),
             ),
           ),

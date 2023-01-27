@@ -38,8 +38,8 @@ class _OnbondingState extends State<Onbonding> {
       width: isActive ? 8.0 : 8.0,
       decoration: BoxDecoration(
         color: isActive
-            ? Colors.green.shade600
-            : notifire.getprocolor.withOpacity(0.2),
+            ? Colors.green
+            : Colors.green.withOpacity(0.2),
         borderRadius: const BorderRadius.all(
           Radius.circular(12),
         ),
@@ -64,7 +64,7 @@ class _OnbondingState extends State<Onbonding> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   Container(
-                    color: Colors.white.withOpacity(0.09),
+                    color: notifire.getprimerycolor,
                     height: height,
                     child: PageView(
                       physics: const ClampingScrollPhysics(),
@@ -110,8 +110,6 @@ class _OnbondingState extends State<Onbonding> {
                                         CustomStrings.onbondings1,
                                         textAlign: TextAlign.start,
                                         style: TextStyle(
-                                            fontFamily: 'Gilroy Medium',
-                                            color: notifire.getdarkscolor,
                                             fontSize: height / 60),
                                       ),
                                     ),
@@ -247,24 +245,24 @@ class _OnbondingState extends State<Onbonding> {
                                   },),);
                                 },
                                 child: Container(
-                                  decoration: BoxDecoration(
+                                  decoration:  BoxDecoration(
                                     color: Colors.green.shade500,
                                     borderRadius: const BorderRadius.all(
-                                      Radius.circular(15),
-                                    ),
+                                      Radius.circular(15)
+                                    )
                                   ),
                                   height: height / 20,
                                   width: width / 4,
-                                  child:const Padding(
+                                  child: const Padding(
                                     padding:  EdgeInsets.symmetric(
                                         horizontal: 15.0),
                                     child: Center(
                                       child: Text(
                                         CustomStrings.skip,
                                         style: TextStyle(
-                                            fontFamily: 'Gilroy Bold',
+                                          fontWeight: FontWeight.bold,
                                             color: colors.white,
-                                            fontSize: 15),
+                                            fontSize: 14),
                                       ),
                                     ),
                                   ),
@@ -314,7 +312,7 @@ class _OnbondingState extends State<Onbonding> {
                                       child: Text(
                                         CustomStrings.start,
                                         style: TextStyle(
-                                            fontFamily: 'Gilroy Bold',
+                                          fontWeight: FontWeight.bold,
                                             color: colors.white,
                                             fontSize: 14),
                                       ),
