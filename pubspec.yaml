@@ -59,7 +59,8 @@ dev_dependencies:
 flutter_icons:
   android: true
   ios: true
-  image_path: "image/user1.png"
+  remove_alpha_ios: true
+  image_path: "image/1024.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

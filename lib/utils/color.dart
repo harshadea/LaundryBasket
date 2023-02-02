@@ -9,8 +9,8 @@ Color darkcardColor = const Color(0xff3d3d4e);
 Color textColor = const Color(0xff2D2D3A);
 Color darktextColor = const Color(0xff2D2D3A);
 
-Color proColor = const Color(0xff0065ff);
-Color darkproColor = const Color(0xff0065ff);
+Color proColor =  Colors.green.shade600;
+Color darkproColor = Colors.green.shade900;
 
 Color preColor = const Color(0xff0065ff);
 Color darkpreColor = Colors.white;

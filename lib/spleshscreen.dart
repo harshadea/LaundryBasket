@@ -23,7 +23,7 @@ class _SpleshscreenState extends State<Spleshscreen> {
     getdarkmodepreviousstate();
     Timer(
       const Duration(seconds: 4),
-          () => Navigator.pushReplacement(
+      () => Navigator.pushReplacement(
           context,
           PageTransition(
               type: PageTransitionType.fade, child: const Onbonding())),
@@ -42,30 +42,33 @@ class _SpleshscreenState extends State<Spleshscreen> {
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
     notifire = Provider.of<ColorNotifire>(context, listen: true);
     height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
-    return  Scaffold(
-        backgroundColor: const Color(0xff4085fa),
-        body: Stack(
-          children: [
-            Image.asset("image/splesh.png",fit: BoxFit.fill,height: height,width: width,),
-            Center(
-              child: Container(
-                height: height / 4,
-                width: width / 2,
-                decoration: const BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
-              ),
-                child: Center(child: Image.asset("image/cleans1.png",height: height / 8,),),
+    return Scaffold(
+      backgroundColor: const Color(0xff4085fa),
+      body: Stack(
+        children: [
+          Image.asset("image/Untitled.png",
+              fit: BoxFit.fill, height: height, width: width),
+          Center(
+            child: Container(
+              height: height / 4,
+              width: width / 2,
+              decoration: const BoxDecoration(
+                  color: Colors.white, shape: BoxShape.circle),
+              child: Center(
+                child: Image.asset(
+                  "image/cleans1.png",
+                  height: height / 8,
+                ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
+      ),
     );
   }
 }

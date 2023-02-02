@@ -1,8 +1,8 @@
+import 'package:anywash/home/constants/profile.dart';
 import 'package:anywash/home/home.dart';
 import 'package:anywash/order/order.dart';
 import 'package:anywash/utils/color.dart';
 import 'package:anywash/utils/media.dart';
-import 'package:anywash/view/recommended.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
@@ -45,7 +45,7 @@ class _BottomState extends State<Bottom> {
     // const CartScreen(),
     const Order(),
     const Message(),
-    const Recommended(),
+    const ProfileScreen(),
   ];
 
   @override
